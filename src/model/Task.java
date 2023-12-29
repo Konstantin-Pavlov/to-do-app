@@ -12,8 +12,8 @@ public class Task {
     private Status status;
 
 
-    public Task(String title, String description,
-                LocalDateTime completionDate, LocalDateTime createdDate, Priority priority) {
+    public Task(String title, String description,LocalDateTime createdDate,
+                LocalDateTime completionDate, Priority priority) {
         this.title = title;
         this.description = description;
         this.completionDate = completionDate;
@@ -29,6 +29,7 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
