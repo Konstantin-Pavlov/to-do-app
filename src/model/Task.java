@@ -11,4 +11,25 @@ public class Task {
     private Priority priority;
     private Status status;
 
+
+    public Task(String title, String description,
+                LocalDateTime completionDate, LocalDateTime createdDate, Priority priority) {
+        this.title = title;
+        this.description = description;
+        this.completionDate = completionDate;
+        this.createdDate = createdDate;
+        this.priority = priority;
+        setStatus(Status.NEW);
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
