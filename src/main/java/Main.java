@@ -1,18 +1,27 @@
-import exceptions.TaskException;
+
 import model.Priority;
-import model.Status;
 import model.Task;
 import util.JsonReader;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Task[] tasks = JsonReader.loadJsonArray("data/tasks.json", Task[].class);
+        List<Task> tasks = JsonReader.loadJsonArray();
 
-        assert tasks != null;
-        Arrays.stream(tasks).forEach(System.out::println);
+        tasks.forEach(System.out::println);
+
+        System.out.println();
+
+        Task task = tasks.get(0);
+        task.setPriority(Priority.MEDIUM);
+        JsonReader.writeFile(tasks);
+
+        tasks.forEach(System.out::println);
+
+
 
 
 //        Task task = new Task("task", "description",
