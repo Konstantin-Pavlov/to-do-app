@@ -1,6 +1,7 @@
 package model;
 
 import exceptions.TaskException;
+import model.Task;
 
 public enum Status {
     NEW {
