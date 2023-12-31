@@ -4,7 +4,7 @@
     "description": "clean the apartment",
     "createdDate": "2023-11-20T00:00:00",
     "completionDate": "2023-11-21T00:00:00",
-    "priority": "LOW",
+    "priority": "MEDIUM",
     "status": "NEW"
   },
   {
