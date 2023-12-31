@@ -30,7 +30,8 @@ public enum Status {
             task.setDescription("new");//новые описания условия задачи.
             System.out.println(" Описание задачи успешно изменено");
         }
-    }, IN_PROGRESS {
+    },
+    IN_PROGRESS {
         @Override
         public void changeToNew(Task task) throws TaskException {
             throw new TaskException("Нельзя изменить статус на New, статус уже установлен на New");
@@ -61,7 +62,8 @@ public enum Status {
             throw new TaskException("Нельзя менять описание задачи");
 
         }
-    }, DONE {
+    },
+    DONE {
         @Override
         public void changeToNew(Task task) throws TaskException {
             throw new TaskException("изменить статус на Done");

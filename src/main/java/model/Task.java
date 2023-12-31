@@ -5,12 +5,13 @@ import java.time.LocalDateTime;
 public class Task {
     private String title; //название
     private String description; // описание
-    private LocalDateTime completionDate; //дата завершения
     private LocalDateTime createdDate; //дата создания
-
+    private LocalDateTime completionDate; //дата завершения
     private Priority priority;
     private Status status;
 
+    public Task() {
+    }
 
     public Task(String title, String description,LocalDateTime createdDate,
                 LocalDateTime completionDate, Priority priority) {
@@ -32,5 +33,17 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", createdDate=" + createdDate +
+                ", completionDate=" + completionDate +
+                ", priority=" + priority +
+                ", status=" + status +
+                '}';
     }
 }
