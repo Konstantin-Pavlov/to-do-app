@@ -1,11 +1,15 @@
 package model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDateTime;
 
 public class Task {
     private String title; //название
     private String description; // описание
+    @SerializedName("createdDate")
     private LocalDateTime createdDate; //дата создания
+    @SerializedName("completionDate")
     private LocalDateTime completionDate; //дата завершения
     private Priority priority;
     private Status status;
@@ -13,7 +17,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(String title, String description,LocalDateTime createdDate,
+    public Task(String title, String description, LocalDateTime createdDate,
                 LocalDateTime completionDate, Priority priority) {
         this.title = title;
         this.description = description;
@@ -33,6 +37,10 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 
     @Override
