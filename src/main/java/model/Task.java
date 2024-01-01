@@ -3,6 +3,7 @@ package model;
 import com.google.gson.annotations.SerializedName;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Task {
     private String title; //название
@@ -45,13 +46,12 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", createdDate=" + createdDate +
-                ", completionDate=" + completionDate +
-                ", priority=" + priority +
-                ", status=" + status +
-                '}';
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MM dd HH:mm");
+        return  String.format("%-20s", "title: ")            + title + "\n" +
+                String.format("%-20s", "description: ")      + description + "\n" +
+                String.format("%-20s", "created Date: ")     + createdDate.format(formatter) + "\n" +
+                String.format("%-20s", "completion Date: ")  + completionDate.format(formatter) + "\n" +
+                String.format("%-20s", "priority: ")         + priority + "\n" +
+                String.format("%-20s", "status: ")           + status + "\n";
     }
 }
