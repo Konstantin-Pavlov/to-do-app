@@ -44,6 +44,10 @@ public class Task {
         this.priority = priority;
     }
 
+    public Priority getPriority() {
+        return priority;
+    }
+
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MM dd HH:mm");
@@ -54,4 +58,6 @@ public class Task {
                 String.format("%-20s", "priority: ")         + priority + "\n" +
                 String.format("%-20s", "status: ")           + status + "\n";
     }
+
+
 }

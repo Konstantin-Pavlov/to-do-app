@@ -1,18 +1,26 @@
 [
   {
-    "title": "cleaning",
-    "description": "clean the apartment",
-    "createdDate": "2023:11:20 12:00",
-    "completionDate": "2023:11:21 13:00",
-    "priority": "LOW",
-    "status": "NEW"
-  },
-  {
     "title": "learning",
     "description": "study hard!",
     "createdDate": "2023:12:25 16:00",
     "completionDate": "2023:12:25 18:00",
     "priority": "MEDIUM",
+    "status": "NEW"
+  },
+  {
+    "title": "shopping",
+    "description": "visit the mall",
+    "createdDate": "2023:12:28 20:00",
+    "completionDate": "2023:12:28 21:00",
+    "priority": "MEDIUM",
+    "status": "NEW"
+  },
+  {
+    "title": "cleaning",
+    "description": "clean the apartment",
+    "createdDate": "2023:11:20 12:00",
+    "completionDate": "2023:11:21 13:00",
+    "priority": "LOW",
     "status": "NEW"
   }
 ]

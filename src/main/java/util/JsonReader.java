@@ -7,21 +7,21 @@ import model.Task;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class JsonReader {
-    private static GsonBuilder gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter());
-    private static Gson gson = gsonBuilder.setPrettyPrinting().create();
+    private static final GsonBuilder gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter());
+    private static final Gson gson = gsonBuilder.setPrettyPrinting().create();
 
-    private static final String path = "data/tasks.json";
 
     private JsonReader() {
     }
 
-    public static List<Task> loadJsonArray() {
+    public static List<Task> loadJsonArray(String path)  {
 
         Path PATH = Paths.get(path);
         try {
@@ -35,7 +35,7 @@ public class JsonReader {
         }
     }
 
-    public static void writeFile(List<Task> tasks) {
+    public static void writeFile(List<Task> tasks, String path) {
         Path PATH = Paths.get(path);
         String json = gson.toJson(tasks);
 
@@ -47,6 +47,5 @@ public class JsonReader {
             e.printStackTrace();
         }
     }
-
 
 }
