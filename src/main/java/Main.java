@@ -1,25 +1,34 @@
-
 import model.Priority;
 import model.Task;
+import service.TaskManager;
 import util.JsonReader;
 
-import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Task> tasks = JsonReader.loadJsonArray();
+        TaskManager taskManager = new TaskManager();
+        List<Task> tasks = taskManager.getTasks();
 
-        tasks.forEach(System.out::println);
 
-        System.out.println();
+        taskManager.saveTasksListToJson();
 
-        Task task = tasks.get(0);
-        task.setPriority(Priority.MEDIUM);
-        JsonReader.writeFile(tasks);
+        taskManager.printAllTasks();
 
-        tasks.forEach(System.out::println);
+        taskManager.close();
+
+//        System.out.println();
+//
+//        taskManager.addTask();
+//
+//        taskManager.printAllTasks();
+
+
+//        Task task = tasks.get(0);
+//        task.setPriority(Priority.LOW);
+//        JsonReader.writeFile(tasks);
+//
+//        taskManager.printAllTasks();
 
 
 
