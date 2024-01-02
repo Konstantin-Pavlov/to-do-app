@@ -35,24 +35,26 @@ public class TaskManager {
 
     public void addTask() {
         System.out.println("task added");
-        tasks.add(new Task(
-                "shopping",
-                "visit the mall",
-                LocalDateTime.of(2023, 12, 28, 20, 0),
-                LocalDateTime.of(2023, 12, 28, 21, 0),
-                Priority.MEDIUM)
+        tasks.add(
+                new Task(
+                        "shopping",
+                        "visit the mall",
+                        LocalDateTime.of(2023, 12, 28, 20, 0),
+                        LocalDateTime.of(2023, 12, 28, 21, 0),
+                        Priority.MEDIUM
+                )
         );
     }
 
-    public void saveTasksListToJson(){
+    public void saveTasksListToJson() {
         JsonReader.writeFile(tasks, path);
     }
 
-    public void close(){
+    public void close() {
         scanner.close();
     }
 
-    private void createJsonFile(){
+    private void createJsonFile() {
         try {
             file.createNewFile();
         } catch (IOException e) {
@@ -66,12 +68,12 @@ public class TaskManager {
         String answer;
         if (file.exists()) {
             tasks = JsonReader.loadJsonArray(path);
-            if (tasks == null ) {
+            if (tasks == null) {
                 tasks = new ArrayList<>();
                 System.out.println("task list is empty");
                 System.out.print("create new task? y/n ");
                 answer = scanner.nextLine();
-                if(answer.equals("y")){
+                if (answer.equals("y")) {
                     addTask();
                 }
             }
@@ -79,7 +81,7 @@ public class TaskManager {
             System.out.println("file doesn't exist");
             System.out.print("create new file? y/n ");
             answer = scanner.nextLine();
-            if(answer.equals("y")){
+            if (answer.equals("y")) {
                 createJsonFile();
             }
         }
