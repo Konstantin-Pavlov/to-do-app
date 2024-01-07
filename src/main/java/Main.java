@@ -1,3 +1,4 @@
+import interactive.UserInteraction;
 import model.Priority;
 import model.Task;
 import service.TaskManager;
@@ -7,15 +8,18 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        TaskManager taskManager = new TaskManager();
-        List<Task> tasks = taskManager.getTasks();
 
-
-        taskManager.saveTasksListToJson();
-
-        taskManager.printAllTasks();
-
-        taskManager.close();
+        UserInteraction userInteraction = new UserInteraction();
+        userInteraction.showFileInDirectory();
+//        TaskManager taskManager = new TaskManager();
+//        List<Task> tasks = taskManager.getTasks();
+//
+//
+//        taskManager.saveTasksListToJson();
+//
+//        taskManager.printAllTasks();
+//
+//        taskManager.close();
 
 //        System.out.println();
 //
