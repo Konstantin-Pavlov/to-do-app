@@ -4,6 +4,7 @@ import exceptions.TaskException;
 
 import static util.ConsoleColors.*;
 
+// todo - make more informative messages
 public enum Status {
     NEW {
         @Override
@@ -67,7 +68,7 @@ public enum Status {
     DONE {
         @Override
         public void changeToNew(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "изменить статус на Done" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на New" + ANSI_RESET);
 
         }
 
