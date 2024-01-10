@@ -4,7 +4,6 @@ import exceptions.TaskException;
 
 import static util.ConsoleColors.*;
 
-// todo - make more informative messages
 public enum Status {
     NEW {
         @Override
@@ -25,7 +24,7 @@ public enum Status {
 
         @Override
         public void changeToDone(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "Нельзя изменить статус на done" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на done, когда статус new" + ANSI_RESET);
         }
 
         @Override
@@ -48,7 +47,7 @@ public enum Status {
 
         @Override
         public void changeToInProgress(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "Нельзя изменить статус на in_progress" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на in_progress, у задачи уже статус in_progress" + ANSI_RESET);
 
         }
 
@@ -61,14 +60,14 @@ public enum Status {
 
         @Override
         public void changeDescription(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "Нельзя менять описание задачи" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя менять описание задачи когда статус in_progress" + ANSI_RESET);
 
         }
     },
     DONE {
         @Override
         public void changeToNew(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "Нельзя изменить статус на New" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на New когда статус done" + ANSI_RESET);
 
         }
 
@@ -80,19 +79,19 @@ public enum Status {
 
         @Override
         public void changeToInProgress(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "Нельзя изменить статус на in_progress" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на in_progress когда статус done" + ANSI_RESET);
 
         }
 
         @Override
         public void changeToDone(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "Нельзя изменить статус на done" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на done когда статус done" + ANSI_RESET);
 
         }
 
         @Override
         public void changeDescription(Task task) throws TaskException {
-            throw new TaskException(ANSI_RED + "Нельзя изменять описание задачи" + ANSI_RESET);
+            throw new TaskException(ANSI_RED + "Нельзя изменять описание задачи когда статус done" + ANSI_RESET);
 
         }
     };
