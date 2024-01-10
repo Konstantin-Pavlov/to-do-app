@@ -9,10 +9,10 @@ import java.time.format.DateTimeFormatter;
 // todo - make setstatus method private or protected
 
 public class Task {
-    private final String title; //название
-    private String description; // описание
-    private final LocalDateTime createdDate; //дата создания
-    private final LocalDateTime completionDate; //дата завершения
+    private final String title;
+    private String description;
+    private final LocalDateTime createdDate;
+    private final LocalDateTime completionDate;
     private final Priority priority;
     private Status status;
     private Grade grade;
@@ -50,10 +50,6 @@ public class Task {
 
     public Grade getGrade() {
         return grade;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 
     public void changeGrade(Grade grade) {
@@ -106,6 +102,10 @@ public class Task {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    protected void setStatus(Status status) {
+        this.status = status;
     }
 
     private void setDescription(String description) {
