@@ -34,7 +34,7 @@ public class FileUtil {
         }
     }
 
-    public static void writeFile(List<Task> tasks, String path) {
+    public static void writeFile(List<Task> tasks, String path) throws IOException {
         Path PATH = Paths.get(path);
         String json = gson.toJson(tasks);
 
@@ -42,8 +42,7 @@ public class FileUtil {
         try {
             Files.write(PATH, bytes);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
+            throw new IOException("failed to write to json file");
         }
     }
 
