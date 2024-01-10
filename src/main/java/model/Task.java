@@ -5,6 +5,7 @@ import exceptions.TaskException;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 // todo - make setstatus method private or protected
 
@@ -102,6 +103,22 @@ public class Task {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(title, task.title) &&
+                Objects.equals(description, task.description) &&
+                Objects.equals(createdDate, task.createdDate) &&
+                Objects.equals(completionDate, task.completionDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, description, createdDate, completionDate);
     }
 
     protected void setStatus(Status status) {
