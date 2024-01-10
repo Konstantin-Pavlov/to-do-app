@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "title": "Product Launch Campaign",
+      "description": "Plan and execute a marketing campaign for the launch of a new product",
+      "createdDate": "2024:07:01 10:00",
+      "completionDate": "2024:07:01 12:00",
+      "priority": "MEDIUM",
+      "status": "NEW",
+      "grade": "NOT_SET"
+    },
+    {
+      "title": "Data Analysis and Visualization",
+      "description": "Analyze and visualize data to identify patterns and insights",
+      "createdDate": "2024:05:15 13:00",
+      "completionDate": "2024:05:15 15:00",
+      "priority": "MEDIUM",
+      "status": "NEW",
+      "grade": "NOT_SET"
+    },
+    {
+      "title": "Strategic Partnership Exploration",
+      "description": "Explore potential strategic partnerships for business growth and expansion",
+      "createdDate": "2024:05:17 10:00",
+      "completionDate": "2024:05:17 12:00",
+      "priority": "LOW",
+      "status": "NEW",
+      "grade": "NOT_SET"
+    },
+    {
+      "title": "Customer Support Process Optimization",
+      "description": "Optimize customer support processes to enhance efficiency and satisfaction",
+      "createdDate": "2024:05:19 14:00",
+      "completionDate": "2024:05:19 16:00",
+      "priority": "MEDIUM",
+      "status": "NEW",
+      "grade": "NOT_SET"
+    },
+    {
+      "title": "IT Infrastructure Upgrade",
+      "description": "Plan and execute upgrades for the company's IT infrastructure",
+      "createdDate": "2024:05:21 09:00",
+      "completionDate": "2024:05:21 11:00",
+      "priority": "HIGH",
+      "status": "NEW",
+      "grade": "NOT_SET"
+    },
+    {
+      "title": "Content Marketing Strategy Development",
+      "description": "Develop a comprehensive content marketing strategy for the upcoming quarter",
+      "createdDate": "2024:05:23 13:00",
+      "completionDate": "2024:05:23 15:00",
+      "priority": "MEDIUM",
+      "status": "NEW",
+      "grade": "NOT_SET"
+    },
+    {
+      "title": "Product Testing and Quality Assurance",
+      "description": "Perform thorough testing and quality assurance checks on the latest product release",
+      "createdDate": "2024:05:25 10:00",
+      "completionDate": "2024:05:25 12:00",
+      "priority": "LOW",
+      "status": "NEW",
+      "grade": "NOT_SET"
+    }
+  ]
+}
