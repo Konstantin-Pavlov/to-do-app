@@ -2,6 +2,7 @@ package service;
 
 import model.Priority;
 import model.Task;
+import util.ConsoleColors;
 import util.FileUtil;
 
 import java.io.File;
@@ -164,7 +165,12 @@ public class TaskManager {
     }
 
     private void saveTasksListToJson() {
-        FileUtil.writeFile(tasks, DEFAULT_PATH);
+        try {
+            FileUtil.writeFile(tasks, DEFAULT_PATH);
+            System.out.println(ConsoleColors.ANSI_GREEN_BACKGROUND + "успешно сохранили в json файл" + ConsoleColors.ANSI_RESET);
+        } catch (IOException e) {
+            System.out.println(ConsoleColors.ANSI_RED +  e.getMessage() + ConsoleColors.ANSI_RESET);
+        }
     }
 
     private void createDefaultJsonFile() {
