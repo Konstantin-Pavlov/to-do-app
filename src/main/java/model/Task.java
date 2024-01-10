@@ -6,7 +6,7 @@ import exceptions.TaskException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-// todo - make setstatus private or protected
+// todo - make setstatus method private or protected
 
 public class Task {
     private final String title; //название
