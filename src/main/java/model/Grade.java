@@ -12,7 +12,6 @@ public enum Grade {
     BELOW_AVERAGE,
     FAIL;
 
-
     public void setGrade(Task task, String gradeName) throws GradeException {
         if (task.getStatus() != Status.DONE) {
             throw new GradeException(ANSI_RED + "an attempt to set a task grade when the task status is not 'done'" + ANSI_RESET);
