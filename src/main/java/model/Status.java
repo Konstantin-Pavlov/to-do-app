@@ -1,97 +1,97 @@
 package model;
 
 import exceptions.TaskException;
-import model.Task;
+
+import static util.ConsoleColors.*;
 
 public enum Status {
     NEW {
         @Override
         public void changeToNew(Task task) throws TaskException {
-            throw new TaskException("Нельзя изменить статус на New, статус уже установлен на New");
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на New, статус уже установлен на New" + ANSI_RESET);
         }
 
         @Override
         public void deleteTask() {
-            System.out.println("Задача успешно удаленаю");
+            System.out.println(ANSI_GREEN_BACKGROUND + "Задача успешно удалена" + ANSI_RESET);
         }
 
         @Override
         public void changeToInProgress(Task task) {
             task.setStatus(Status.IN_PROGRESS);
-            System.out.println("Успешно изменили статус на in_progress");
+            System.out.println(ANSI_GREEN_BACKGROUND + "Успешно изменили статус на in_progress" + ANSI_RESET);
         }
 
         @Override
         public void changeToDone(Task task) throws TaskException {
-            throw new TaskException("Нельзя изменить статус на done");
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на done" + ANSI_RESET);
         }
 
         @Override
         public void changeDescription(Task task) {
-            task.setDescription("new");//новые описания условия задачи.
-            System.out.println(" Описание задачи успешно изменено");
+            System.out.println(ANSI_GREEN_BACKGROUND + "Описание задачи успешно изменено" + ANSI_RESET);
         }
     },
     IN_PROGRESS {
         @Override
         public void changeToNew(Task task) throws TaskException {
-            throw new TaskException("Нельзя изменить статус на New, статус уже установлен на New");
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на New, статус уже установлен на New" + ANSI_RESET);
 
         }
 
         @Override
         public void deleteTask() throws TaskException {
-            throw new TaskException("Нельзя удалить задачу когда она в состоянии in-progress");
+            throw new TaskException(ANSI_RED + "Нельзя удалить задачу когда она в состоянии in-progress" + ANSI_RESET);
 
         }
 
         @Override
         public void changeToInProgress(Task task) throws TaskException {
-            throw new TaskException("Нельзя изменить статус на in_progress");
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на in_progress" + ANSI_RESET);
 
         }
 
         @Override
         public void changeToDone(Task task) {
             task.setStatus(Status.DONE);
-            System.out.println("Успешно изменили статус на Done");
+            System.out.println(ANSI_GREEN_BACKGROUND + "Успешно изменили статус на Done" + ANSI_RESET);
 
         }
 
         @Override
         public void changeDescription(Task task) throws TaskException {
-            throw new TaskException("Нельзя менять описание задачи");
+            throw new TaskException(ANSI_RED + "Нельзя менять описание задачи" + ANSI_RESET);
 
         }
     },
     DONE {
         @Override
         public void changeToNew(Task task) throws TaskException {
-            throw new TaskException("изменить статус на Done");
+            throw new TaskException(ANSI_RED + "изменить статус на Done" + ANSI_RESET);
 
         }
 
         @Override
         public void deleteTask() throws TaskException {
-            throw new TaskException("Нельзя удалить задачу когда она в состоянии Done");
+            throw new TaskException(ANSI_RED + "Нельзя удалить задачу когда она в состоянии Done" + ANSI_RESET);
 
         }
 
         @Override
         public void changeToInProgress(Task task) throws TaskException {
-            throw new TaskException("Нельзя изменить статус на in_progress");
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на in_progress" + ANSI_RESET);
 
         }
 
         @Override
         public void changeToDone(Task task) throws TaskException {
-            throw new TaskException("Нельзя изменить статус на done");
+            throw new TaskException(ANSI_RED + "Нельзя изменить статус на done" + ANSI_RESET);
 
         }
 
         @Override
         public void changeDescription(Task task) throws TaskException {
-            throw new TaskException("Нельзя изменять описание задачи");
+            throw new TaskException(ANSI_RED + "Нельзя изменять описание задачи" + ANSI_RESET);
 
         }
     };
