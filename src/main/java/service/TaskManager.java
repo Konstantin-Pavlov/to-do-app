@@ -45,7 +45,7 @@ public class TaskManager {
                             3  изменить описание задачи
                             4  пометить как (“новая”, “в работе”, “сделано” )
                             5  посмотреть есть ли у задачи дубликат // реализовать
-                            6  найти задачу по описанию // реализовать
+                            6  найти задачу по описанию
                             7  удалить задачу
                             8  сохранить в файл
                             9  сортировать по приоритету и распечатать задачи
@@ -60,7 +60,7 @@ public class TaskManager {
                     System.out.println("вышли из меню задач");
                     break;
                 case 1:
-                case 7:
+                case 9:
                     printAllTasksSortedByPriority();
                     break;
                 case 2:
@@ -74,17 +74,20 @@ public class TaskManager {
                     System.out.println("пометить как (“новая”, “в работе”, “сделано” ");
                     changeTaskStatus();
                     break;
-                case 5:
+                case 6:
+                    searchByTitle();
+                    break;
+                case 7:
                     System.out.println("удалить задачу");
                     deleteTask();
                     break;
-                case 6:
+                case 8:
                     saveTasksListToJson();
                     break;
-                case 8:
+                case 10:
                     printAllTasksSortedByCreationDate();
                     break;
-                case 9:
+                case 11:
                     printAllTasksSortedByDescriptionLength();
                     break;
                 default:
@@ -96,6 +99,23 @@ public class TaskManager {
 
     public void close() {
         scanner.close();
+    }
+
+    private void searchByTitle() {
+        scanner.nextLine();
+        System.out.print("поиск по описанию, введите слово: ");
+        String keyWord = scanner.nextLine();
+        List<Task> foundTasks = tasks
+                .stream()
+                .filter(task -> task.getTitle().toLowerCase().contains(keyWord.toLowerCase()))
+                .toList();
+
+        if (foundTasks.isEmpty()) {
+            System.out.println("задач с таким названием не нашлось");
+        } else {
+            System.out.println("нашлись такие задачи:");
+            foundTasks.forEach(System.out::println);
+        }
     }
 
     private void printAllTasksSortedByCreationDate() {
@@ -171,7 +191,7 @@ public class TaskManager {
             FileUtil.writeFile(tasks, DEFAULT_PATH);
             System.out.println(ConsoleColors.ANSI_GREEN_BACKGROUND + "успешно сохранили в json файл" + ConsoleColors.ANSI_RESET);
         } catch (IOException e) {
-            System.out.println(ConsoleColors.ANSI_RED +  e.getMessage() + ConsoleColors.ANSI_RESET);
+            System.out.println(ConsoleColors.ANSI_RED + e.getMessage() + ConsoleColors.ANSI_RESET);
         }
     }
 
